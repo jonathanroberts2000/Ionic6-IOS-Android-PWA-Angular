@@ -24,6 +24,7 @@ export class MenuComponent implements OnInit {
       path: '/posts'
     }
   ];
+
   constructor() { }
 
   ngOnInit(): void {
