@@ -10,10 +10,13 @@ export class PostsComponent implements OnInit {
 
   constructor(private dataService: DataService) { }
 
+  mensajes: any;
+
   ngOnInit(): void {
-    this.dataService.getPosts().subscribe(posts => {
-      console.log(posts);
-    });
+    this.mensajes = this.dataService.getPosts()
+    /*.subscribe((posts: any[]) => {
+      this.mensajes = posts;
+    });*/
   }
 
 }
