@@ -16,8 +16,16 @@ export class ModalPage implements OnInit {
 
   async mostrarModal() {
     const modal = this.modalCtrl.create({
-      component: ModalInfoPage
+      component: ModalInfoPage,
+      componentProps: {
+        nombre: "Joanthan",
+        pais: "Argentina"
+      }
     });
-    (await modal).present();
+   await (await modal).present();
+
+    const { data } = await (await modal).onDidDismiss();
+
+    console.log(data);
   }
 }
