@@ -26,6 +26,8 @@ export class ModalPage implements OnInit {
 
     const { data } = await (await modal).onDidDismiss();
 
+    //se puede usar el onWillDismiss que se ejecuta antes de que se cierre el modal, durante el cierre
+
     console.log(data);
   }
 }
