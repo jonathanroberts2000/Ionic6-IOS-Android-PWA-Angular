@@ -1,9 +1,82 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>segment</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/" color="primary"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="primary">Segment</ion-title>
   </ion-toolbar>
+
+  <!--SI LO PONGO ACA, NO LO PIERDO EN EL SCROLL-->
+  <ion-segment value="" (ionChange)="segmentChanged($event)">
+
+    <ion-segment-button value="">
+      <ion-label>Todos</ion-label>
+    </ion-segment-button>
+
+    <ion-segment-button value="DC Comics">
+      <ion-label>DC Comics</ion-label>
+    </ion-segment-button>
+
+    <ion-segment-button value="Marvel Comics">
+      <ion-label>Marvel Comics</ion-label>
+    </ion-segment-button>
+
+  </ion-segment>
+
 </ion-header>
 
 <ion-content>
+
+  <!-- Default Segment -->
+  <!--<ion-segment>
+    <ion-segment-button value="friends">
+      <ion-label>Friends</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="enemies">
+      <ion-label>Enemies</ion-label>
+    </ion-segment-button>
+  </ion-segment>-->
+
+  <!-- Scrollable Segment -->
+  <!--<ion-segment scrollable value="heart">
+    <ion-segment-button value="home">
+      <ion-icon name="home"></ion-icon>
+    </ion-segment-button>
+    <ion-segment-button value="heart">
+      <ion-icon name="heart"></ion-icon>
+    </ion-segment-button>
+    <ion-segment-button value="pin">
+      <ion-icon name="pin"></ion-icon>
+    </ion-segment-button>
+    <ion-segment-button value="star">
+      <ion-icon name="star"></ion-icon>
+    </ion-segment-button>
+    <ion-segment-button value="call">
+      <ion-icon name="call"></ion-icon>
+    </ion-segment-button>
+    <ion-segment-button value="globe">
+      <ion-icon name="globe"></ion-icon>
+    </ion-segment-button>
+    <ion-segment-button value="basket">
+      <ion-icon name="basket"></ion-icon>
+    </ion-segment-button>
+  </ion-segment>-->
+
+
+
+  <ion-list>
+    <ion-item *ngFor="let heroe of (superHeroes | async) | filtro: textoBuscar:'publisher'">
+
+      <ion-label>
+        <h3>{{heroe.superhero}} <small> {{heroe.alter_ego}} </small></h3>
+        <p>
+          {{heroe.first_appearance}}
+        </p>
+      </ion-label>
+
+      <ion-label slot="end" class="ion-text-right">{{heroe.publisher}}</ion-label>
+
+    </ion-item>
+  </ion-list>
 
 </ion-content>
