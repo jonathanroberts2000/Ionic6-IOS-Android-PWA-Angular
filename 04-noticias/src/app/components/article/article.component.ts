@@ -13,4 +13,8 @@ export class ArticleComponent {
 
   constructor() { }
 
+  openArticle(): void {
+    window.open(this.article.url, '_blank');
+  }
+
 }
